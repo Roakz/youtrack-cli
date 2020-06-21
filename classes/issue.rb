@@ -16,6 +16,7 @@ class Issue
     @results['comments'].map {|comment| puts "#{comment['author']['fullName']} => #{comment['text']}./commented at - #{@results['created']}/\n\n"}
     puts "--------------------------------------------------------------------------------------------------------------------------------------------"
     puts "Resolved?: #{@results['resolved'] ? @results['resolved'] : 'false'}"
+    puts "Tags: #{@results['tags']}"
     puts "Created: #{@results['created']}"
     puts "Updated: #{@results['updated']}"
   end

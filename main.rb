@@ -2,6 +2,7 @@ require_relative 'config.local'
 require_relative 'help'
 require_relative 'classes/project'
 require_relative 'classes/issue'
+require_relative 'classes/board'
 
 require 'httparty'
 
