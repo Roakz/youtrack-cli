@@ -20,4 +20,10 @@ class Issue
     puts "Created: #{@results['created']}"
     puts "Updated: #{@results['updated']}"
   end
+
+  def create(opts = {})
+    @response = post($api_base_url + "issues?fields=idReadable", opts[:body])
+    puts @response.body
+  end
 end
+

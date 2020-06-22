@@ -6,7 +6,6 @@ require_relative 'classes/board'
 
 require 'httparty'
 
-
 def main
   if ARGV.length > 0
     if !%w(show update delete create issues).include?(ARGV[1])
@@ -17,6 +16,11 @@ def main
       method_to_call = ARGV[1]
       class_to_call = Object.const_get(ARGV[0]).new()
       opts = ARGV.length == 4 ? { :id => ARGV[2], :count => "I exist! give the man (or women) a count !"} : {:id => ARGV[2]}
+      if opts.length == 1
+        if ARGV[2].split("{").length > 1
+          opts = {:body => ARGV[2]}
+        end
+      end
       class_to_call.public_send(method_to_call, opts ) if class_to_call.respond_to? method_to_call
     end
   else   
